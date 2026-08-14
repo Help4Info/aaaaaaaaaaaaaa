@@ -1,0 +1,21 @@
+{
+  "name": "flowwhisper-desktop",
+  "version": "1.0.0",
+  "description": "Wrapper Electron pour FlowWhisper — dictée vocale par IA (base bureau).",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "author": "Help4Info",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "info.help4.flowwhisper",
+    "productName": "FlowWhisper",
+    "files": ["main.js", "preload.js", "../web/**/*"]
+  }
+}

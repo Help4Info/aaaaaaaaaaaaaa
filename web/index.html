@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowWhisper — Dictée vocale par IA</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">🎙️</span>
+        <h1>FlowWhisper</h1>
+      </div>
+      <div class="status" id="status">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusText">Connexion…</span>
+      </div>
+    </header>
+
+    <main class="stage">
+      <!-- Zone d'enregistrement -->
+      <section class="recorder">
+        <button id="recordBtn" class="record-btn" aria-label="Enregistrer">
+          <span class="mic-icon">🎤</span>
+        </button>
+        <div class="levels" id="levels" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p class="hint" id="hint">Cliquez sur le micro ou maintenez <kbd>Espace</kbd> pour dicter</p>
+        <p class="timer" id="timer" hidden>00:00</p>
+      </section>
+
+      <!-- Contrôles -->
+      <section class="controls">
+        <label class="field">
+          <span>Langue</span>
+          <select id="language"></select>
+        </label>
+        <label class="field">
+          <span>Mise en forme IA</span>
+          <select id="mode">
+            <option value="clean">Nettoyer</option>
+            <option value="formal">Formel</option>
+            <option value="email">E-mail</option>
+            <option value="bullets">Puces</option>
+          </select>
+        </label>
+        <label class="field toggle">
+          <input type="checkbox" id="autoRefine" checked />
+          <span>Raffiner automatiquement</span>
+        </label>
+      </section>
+
+      <!-- Résultat -->
+      <section class="result">
+        <div class="result-head">
+          <h2>Texte</h2>
+          <div class="result-actions">
+            <button id="refineBtn" class="btn ghost" title="Raffiner avec l'IA">✨ Raffiner</button>
+            <button id="copyBtn" class="btn" title="Copier">📋 Copier</button>
+          </div>
+        </div>
+        <textarea id="output" placeholder="Votre texte transcrit apparaîtra ici…"></textarea>
+        <div class="meta" id="meta"></div>
+      </section>
+
+      <!-- Historique -->
+      <section class="history">
+        <div class="history-head">
+          <h2>Historique</h2>
+          <button id="clearHistory" class="btn ghost small">Effacer</button>
+        </div>
+        <ul id="historyList" class="history-list"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="providerInfo">Raffinage : —</span>
+      <span>Transcription locale via Whisper · vos données restent chez vous</span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

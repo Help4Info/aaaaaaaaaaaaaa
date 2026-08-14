@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Env / secrets
+.env
+
+# Modèles Whisper téléchargés / cache
+models/
+*.bin
+.cache/
+
+# Node / Electron
+node_modules/
+dist/
+out/
+desktop/dist/
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
