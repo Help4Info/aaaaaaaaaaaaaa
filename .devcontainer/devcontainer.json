@@ -1,0 +1,32 @@
+{
+  "name": "FlowWhisper",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+
+  // HOST=0.0.0.0 pour que le port soit accessible via le transfert Codespaces.
+  "containerEnv": {
+    "HOST": "0.0.0.0",
+    "PORT": "8000"
+  },
+
+  // Port de l'app : ouvert automatiquement dans le navigateur (contexte HTTPS
+  // sécurisé => le micro fonctionne).
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "FlowWhisper",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+  // Installe les dépendances une fois à la création du Codespace.
+  "postCreateCommand": "bash .devcontainer/postCreate.sh",
+
+  // Démarre le serveur (en arrière-plan) à chaque connexion.
+  "postAttachCommand": "nohup bash -lc 'cd \"$(git rev-parse --show-toplevel)/server\" && ./.venv/bin/python main.py' > /tmp/flowwhisper.log 2>&1 & echo 'FlowWhisper démarre sur le port 8000…'",
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  }
+}

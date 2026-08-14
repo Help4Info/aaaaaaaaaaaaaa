@@ -10,6 +10,20 @@ reformulation). Le texte final est copiable en un clic.
 
 ---
 
+## ⚡ Essayer en 1 clic (GitHub Codespaces)
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Help4Info/aaaaaaaaaaaaaa?ref=claude/flowwhisper-app-lvxqc4&quickstart=1)
+
+1. Cliquez sur le bouton ci-dessus (choisissez la branche `claude/flowwhisper-app-lvxqc4`).
+2. Le Codespace installe tout automatiquement (~1–2 min) puis **démarre le serveur**.
+3. Une notification propose d'ouvrir le **port 8000** → cliquez « Open in Browser ».
+4. L'onglet s'ouvre en **HTTPS** (contexte sécurisé) : le **micro fonctionne**, cliquez
+   dessus (ou maintenez `Espace`) et dictez. Whisper se télécharge au premier appel.
+
+> Si le serveur ne tourne pas encore, lancez-le à la main : `./run.sh`.
+
+---
+
 ## ✨ Fonctionnalités
 
 - 🎤 **Enregistrement micro** dans le navigateur (`MediaRecorder`), avec indicateur de niveau audio.
